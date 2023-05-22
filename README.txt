@@ -4,8 +4,14 @@
 
 #### PROJECT DESCRIPTION: The project involves creating a simple application using JS based on a viedo tutorial. Here is a link: https://www.youtube.com/watch?v=UsNm8ZL3YaE
 
-#### TOOLS USED: ..., coffee 
+#### TOOLS USED: 
+ - coffee
+ - Visual Studio Code 
+ - JavaScript Full Stack HTML, CSS, JavaScript & Node.js
 
-#### STEPS TAKEN IN THE PROJECT: ....
+#### STEPS TAKEN IN THE PROJECT: 
+-Implementing the code according to the video tutorials
+(...)
 
-#### LEARNINGS AND SUMMARY: .......
+#### LEARNINGS AND SUMMARY: 
+(....)
