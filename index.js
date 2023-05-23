@@ -41,6 +41,7 @@ app.get('/login', (req, res) => {
 
 app.get('/singup', (req, res) => {
     const { userToken } = req.body
+    console.log(req.body)
     res.sendFile("pages/singup.html", { root: __dirname })
 })
 

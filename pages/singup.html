@@ -70,6 +70,7 @@
       let email = document.getElementById("email").value
       let password = document.getElementById("password").value
       console.log("Submit this data", password, email)
+      postData("/singup", {email, password})
     })
     </script>
 
