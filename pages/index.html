@@ -117,7 +117,8 @@
     submit.addEventListener("click", () => {
       let title = document.getElementById("title").value
       let desc = document.getElementById("desc").value
-      console.log("Submitting this data", title, desc)
+      let email = JSON.parse(localStorage.getItem("user"))?.email
+      console.log("Submitting this data", title, desc, email)
     })
   </script>
 </body>

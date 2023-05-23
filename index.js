@@ -34,8 +34,8 @@ app.post('/getnotes', (req, res) => {
     res.sendFile("pages/signup.html", { root: __dirname })
 })
 
-app.post('/login', (req, res) => {
-    let user = User.findOne(req.body)
+app.post('/login', async (req, res) => {
+    let user = await User.findOne(req.body)
     console.log(user)
     if (!user) {
         res.status(200).json({ success: false, massage: "No user found" })
