@@ -7,7 +7,7 @@
 #### TOOLS USED: 
  - coffee
  - Visual Studio Code 
- - JavaScript Full Stack HTML, CSS, JavaScript & Node.js
+ - Full Stack HTML, CSS, JavaScript & Node.js
 
 #### STEPS TAKEN IN THE PROJECT: 
 -Implementing the code according to the video tutorials
