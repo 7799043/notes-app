@@ -35,7 +35,7 @@ app.post('/getnotes', (req, res) => {
 })
 
 app.post('/login', (req, res) => {
-    let user = User.find(req.body)
+    let user = User.findOne(req.body)
     console.log(user)
     if (!user) {
         res.status(200).json({ success: false, massage: "No user found" })

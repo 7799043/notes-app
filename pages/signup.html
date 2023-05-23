@@ -62,7 +62,7 @@
         },
         body: JSON.stringify(data),
       });
-      let rdata = await respones.json()
+      let rdata = await response.json()
       return rdata;
     }
 
@@ -71,7 +71,7 @@
       let email = document.getElementById("email").value
       let password = document.getElementById("password").value
       console.log("Submitting this data", password, email)
-      let resp = await postData('/signup', { email, password }); // CHECK 74:33
+      let resp = await postData('/signup', { email, password }); 
       console.log(resp)
       if (resp.success) {
         alert("User Created. You can now login.")

@@ -17,7 +17,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/about">About</a>
@@ -57,7 +57,7 @@
           },
           body: JSON.stringify(data),
         });
-        let rdata = await respones.json()
+        let rdata = await response.json()
         return rdata;
       }
   
@@ -66,11 +66,11 @@
         let email = document.getElementById("email").value
         let password = document.getElementById("password").value
         console.log("Submitting this data", password, email)
-        let resp = await postData( '/login', { email, password }); // CHECK 74:33
+        let resp = await postData( '/login', { email, password }); 
         console.log(resp)
         if (resp.success) {
           alert("You are now logged in.")
-          localStorage.setItem("user", resp.user)
+        localStorage.setItem("user", JSON.stringify(resp.user))
           document.getElementById("email").value =""
           document.getElementById("password").value = ""
         }
