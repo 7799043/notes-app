@@ -24,35 +24,43 @@ app.get('/login', (req, res) => {
     res.sendFile("pages/login.html", { root: __dirname })
 })
 
-app.get('/singup', (req, res) => {
-    res.sendFile("pages/singup.html", { root: __dirname })
+app.get('/signup', (req, res) => {
+    res.sendFile("pages/signup.html", { root: __dirname })
 })
 
 // Endopoints for APIs
-app.get('/getnotes', (req, res) => {
+app.post('/getnotes', (req, res) => {
     const { userToken } = req.body
-    res.sendFile("pages/singup.html", { root: __dirname })
+    res.sendFile("pages/signup.html", { root: __dirname })
 })
 
-app.get('/login', (req, res) => {
-    const { userToken } = req.body
-    res.sendFile("pages/singup.html", { root: __dirname })
+app.post('/login', (req, res) => {
+    let user = User.find(req.body)
+    console.log(user)
+    if(!user){
+        res.status(200).json({success: false, massage: "No user found"})
+    }else{
+        res.status(200).json({success: true, user: {email: user.email}, massage: "User found"})
+    }
+
+    res.sendFile("pages/signup.html", { root: __dirname })
 })
 
-app.get('/singup', (req, res) => {
+app.post('/signup', async (req, res) => {
     const { userToken } = req.body
     console.log(req.body)
-    res.sendFile("pages/singup.html", { root: __dirname })
+    let user= await User.create(req.body)
+    res.status(200).json({success:true, user: user})
 })
 
-app.get('/addnote', (req, res) => {
+app.post('/addnote', (req, res) => {
     const { userToken } = req.body
-    res.sendFile("pages/singup.html", { root: __dirname })
+    res.sendFile("pages/signup.html", { root: __dirname })
 })
 
-app.get('/deletenote', (req, res) => {
+app.post('/deletenote', (req, res) => {
     const { userToken } = req.body
-    res.sendFile("pages/singup.html", { root: __dirname })
+    res.sendFile("pages/signup.html", { root: __dirname })
 })
 
 app.listen(port, () => {
