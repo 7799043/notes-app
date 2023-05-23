@@ -15,3 +15,10 @@
 
 #### LEARNINGS AND SUMMARY: 
 (....)
+
+
+#### DIFFERENCE FROM BASELINE:
+- used of MongoDB v6.x instaed of v4.x 
+
+#### IMPLICATION OF DIFFERENCE IN PROJECT:
+- connect() no longer accepts a callback
