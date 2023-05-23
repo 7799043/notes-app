@@ -12,7 +12,7 @@
 <body>
   <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">MyNoteBook</a>
+      <a class="navbar-brand" href="/">MyNoteBook</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -34,7 +34,7 @@
   </nav>
   <div class="container">
     <h1 class="my-4">Add a Note</h1>
-    <form>
+    <div>
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
         <input type="text" class="form-control" id="title" aria-describedby="titleHelp">
@@ -44,8 +44,10 @@
         <label for="desc" class="form-label">Description</label>
         <textarea type="text" class="form-control" id="desc"></textarea>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+
+
+      <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+    </div>
 
     <h1 class="my-4">Your Notes</h1>
     <div class="mynotes row">
@@ -86,10 +88,38 @@
     crossorigin="anonymous"></script>
 
   <script>
-    // Fetch all the notes
-   // const notes = ;
-  </script>
+    async function postData(url = "", data = {}) {
+      // Default options are marked with *
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      return response.json();
+    }
 
+    // Fetch all the notes{
+    const user = JSON.parse(localStorage.getItem('token'))
+    // TODO: Enable this redirection and fetching
+    //if(!user || !user.token){
+    //  window.location="/login"
+    // }
+    // const notes = postData('/getsnotes', {token: user.token})
+    // notes.then((notes)=>{
+    //  console.log("Notes")
+    // populate the notes
+    //  })
+
+    // Add a click listener for Submit 
+    let submit = document.getElementById("submit")
+    submit.addEventListener("click", () => {
+      let title = document.getElementById("title").value
+      let desc = document.getElementById("desc").value
+      console.log("Submitting this data", title, desc)
+    })
+  </script>
 </body>
 
 </html>
