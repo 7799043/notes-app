@@ -15,7 +15,7 @@ mongoose.connect('mongodb://leoniakmaciek1:rkqMA30u@ac-ig4sdoa-shard-00-02.yamms
         console.error('Error');
     });
 
-// Endopoints to server the
+// Endpoints to server the
 app.get('/', (req, res) => {
     res.sendFile("pages/index.html", { root: __dirname })
 })
@@ -28,10 +28,10 @@ app.get('/signup', (req, res) => {
     res.sendFile("pages/signup.html", { root: __dirname })
 })
 
-// Endopoints for APIs
-app.post('/getnotes', (req, res) => {
-    const { userToken } = req.body
-    res.sendFile("pages/signup.html", { root: __dirname })
+// Endpoints for APIs
+app.post('/getnotes', async (req, res) => {
+    let notes = await Note.find({email: req.body.email})
+    res.status(200).json({ success: true, notes })
 })
 
 app.post('/login', async (req, res) => {
@@ -53,9 +53,10 @@ app.post('/signup', async (req, res) => {
     res.status(200).json({ success: true, user: user })
 })
 
-app.post('/addnote', (req, res) => {
+app.post('/addnote', async (req, res) => {
     const { userToken } = req.body
-    res.sendFile("pages/signup.html", { root: __dirname })
+    let note = await Note.create(req.body)
+    res.status(200).json({ success: true, note})     //????? note: note
 })
 
 app.post('/deletenote', (req, res) => {
