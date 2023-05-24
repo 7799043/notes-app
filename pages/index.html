@@ -51,7 +51,7 @@
 
     <h1 class="my-4">Your Notes</h1>
     <div class="mynotes row">
-  
+
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
@@ -73,6 +73,9 @@
     }
 
     // Fetch all the notes{
+
+      const fetchNotes = () =>{
+
     const user = JSON.parse(localStorage.getItem('user'))
     // TODO: Enable this redirection and fetching
     //if(!user || !user.token){
@@ -85,14 +88,14 @@
         // populate the notes
 
         notes.notes.forEach(element => {
-        let note = `
+
+          let note = `
           <div class="card mx-2" style = "width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">${element.title}</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+              <h6 class="card-subtitle mb-2 text-body-secondary">Note Description</h6>
               <p class="card-text">${element.desc}</p>
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
+              <a href="#" class="card-link">Delete</a> // TODO: get alive a button 
             </div>
           </div>`
 
@@ -106,6 +109,9 @@
     else {
       alert("Please login first.")
     }
+
+  }
+  fetchNotes()
     // Add a click listener for Submit 
     let submit = document.getElementById("submit")
     submit.addEventListener("click", async () => {
@@ -119,6 +125,7 @@
         alert("Note Created!")
         document.getElementById("title").value = ""
         document.getElementById("desc").value = ""
+        fetchNotes()
       }
     })
   </script>
