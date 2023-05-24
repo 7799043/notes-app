@@ -7,6 +7,8 @@ app.use(express.json({ extended: true }))
 app.use(express.urlencoded())
 const port = 3000
 
+
+//substitute connection 
 mongoose.connect('mongodb://leoniakmaciek1:rkqMA30u@ac-ig4sdoa-shard-00-02.yamms2s.mongodb.net:27017/?tlsAllowInvalidHostnames=true&tlsAllowInvalidCertificates=true&tls=true&authMechanism=DEFAULT')
     .then(() => {
         console.log('Successfully Connected');
