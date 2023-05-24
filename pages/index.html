@@ -82,6 +82,8 @@
     //  window.location="/login"
     // }
     if (user && user.email) {
+      let noteContainer = document.querySelector(".mynotes")
+          noteContainer.innerHTML =" "
       const notes = postData('/getnotes', { email: user.email })
       notes.then((notes) => {
         console.log("Notes", notes.notes)
@@ -95,7 +97,7 @@
               <h5 class="card-title">${element.title}</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">Note Description</h6>
               <p class="card-text">${element.desc}</p>
-              <a href="#" class="card-link">Delete</a> // TODO: get alive a button 
+              <a href="#" class="card-link">Delete</a> 
             </div>
           </div>`
 
