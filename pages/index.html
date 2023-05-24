@@ -73,7 +73,7 @@
     }
 
     // Fetch all the notes{
-    const user = JSON.parse(localStorage.getItem('token'))
+    const user = JSON.parse(localStorage.getItem('user'))
     // TODO: Enable this redirection and fetching
     //if(!user || !user.token){
     //  window.location="/login"
@@ -86,7 +86,7 @@
 
         notes.notes.forEach(element => {
         let note = `
-          < div class="card mx-2" style = "width: 18rem;" >
+          <div class="card mx-2" style = "width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">${element.title}</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
@@ -95,7 +95,7 @@
               <a href="#" class="card-link">Another link</a>
             </div>
           </div>`
-          
+
           let noteContainer = document.querySelector(".mynotes")
           noteContainer.innerHTML += note
 
