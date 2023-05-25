@@ -74,24 +74,32 @@
 
     // Fetch all the notes
 
-      const fetchNotes = () =>{
+    const fetchNotes = () => {
 
-    const user = JSON.parse(localStorage.getItem('user'))
-    // TODO: Enable this redirection and fetching
-    //if(!user || !user.token){
-    //  window.location="/login"
-    // }
-    if (user && user.email) {
-      let noteContainer = document.querySelector(".mynotes")
-          noteContainer.innerHTML =" "
-      const notes = postData('/getnotes', { email: user.email })
-      notes.then((notes) => {
-        console.log("Notes", notes.notes)
-        // populate the notes
 
-        notes.notes.forEach(element => {
+      // supplement to partly solve problem with else statement ( Please login first.) 
+      const userData = localStorage.getItem('user');
+      console.log(userData);
+      if (userData === undefined || userData === null) {
+        alert("Please login first.")
+      } else
+      {
+      const user = JSON.parse(localStorage.getItem('user'))
+      // TODO: Enable this redirection and fetching
+      //if(!user || !user.token){
+      //  window.location="/login"
+      // }
+      if (user  && user.email ) {
+        let noteContainer = document.querySelector(".mynotes")
+        noteContainer.innerHTML = " "
+        const notes = postData('/getnotes', { email: user.email })
+        notes.then((notes) => {
+          console.log("Notes", notes.notes)
+          // populate the notes
 
-          let note = `
+          notes.notes.forEach(element => {
+
+            let note = `
           <div class="card mx-2" style = "width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">${element.title}</h5>
@@ -101,19 +109,19 @@
             </div>
           </div>`
 
-          let noteContainer = document.querySelector(".mynotes")
-          noteContainer.innerHTML += note
+            let noteContainer = document.querySelector(".mynotes")
+            noteContainer.innerHTML += note
+          });
+        })
+      }
 
-        });
-
-      })
+      else {
+        alert("Please login first.")
+      }
     }
-    else {
-      alert("Please login first.")
-    }
-
   }
-  fetchNotes()
+
+    fetchNotes()
     // Add a click listener for Submit 
     let submit = document.getElementById("submit")
     submit.addEventListener("click", async () => {
