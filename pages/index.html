@@ -17,7 +17,7 @@
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/">Home</a>
@@ -82,20 +82,20 @@
       console.log(userData);
       if (userData === undefined || userData === null) {
         alert("Please login first.")
-      } 
-      else{
-      const user = JSON.parse(localStorage.getItem("user"))
-      if (user !== null || user.email !==undefined ) {
-        let noteContainer = document.querySelector(".mynotes")
-        noteContainer.innerHTML = " "
-        const notes = postData('/getnotes', { email: user.email })
-        notes.then((notes) => {
-          console.log("Notes", notes.notes)
+      }
+      else {
+        const user = JSON.parse(localStorage.getItem("user"))
+        if (user !== null || user.email !== undefined) {
+          let noteContainer = document.querySelector(".mynotes")
+          noteContainer.innerHTML = " "
+          const notes = postData('/getnotes', { email: user.email })
+          notes.then((notes) => {
+            console.log("Notes", notes.notes)
 
-          // populate the notes
-          notes.notes.forEach(element => {
+            // populate the notes
+            notes.notes.forEach(element => {
 
-            let note = `
+              let note = `
           <div class="card mx-2" style = "width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">${element.title}</h5>
@@ -105,11 +105,13 @@
             </div>
           </div>`
 
-            let noteContainer = document.querySelector(".mynotes")
-            noteContainer.innerHTML += note
-          });
-        })
-      }}}
+              let noteContainer = document.querySelector(".mynotes")
+              noteContainer.innerHTML += note
+            });
+          })
+        }
+      }
+    }
     fetchNotes()
     // Add a click listener for Submit 
     let submit = document.getElementById("submit")
