@@ -1,0 +1,7 @@
+01 database accepts invalid email despite client-side security features :
+
+<input type="email" class="form-control" id="email" aria-describedby="emailHelp" pattern="^[^\s]+$" required>
+
+02 the application crashes when an attempt is made to register a user with the same name 
+
+03 the line (index.html line:84 : if (user && user.email){...}else...) doesn't work. It's not show alert ("Please login first.") when user && user.email is invaild. 
