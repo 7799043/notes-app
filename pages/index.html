@@ -89,7 +89,7 @@
       //if(!user || !user.token){
       //  window.location="/login"
       // }
-      if (user  && user.email ) {
+      if (user !== null || user.email !==undefined ) {
         let noteContainer = document.querySelector(".mynotes")
         noteContainer.innerHTML = " "
         const notes = postData('/getnotes', { email: user.email })
@@ -116,7 +116,7 @@
       }
 
       else {
-        alert("Please login first.")
+        alert("222Please login first.")
       }
     }
   }
