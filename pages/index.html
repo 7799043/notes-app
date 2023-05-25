@@ -17,7 +17,7 @@
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/">Home</a>
@@ -78,13 +78,13 @@
 
 
       // supplement to partly solve problem with else statement ( Please login first.) 
-      const userData = localStorage.getItem('user');
+      const userData = localStorage.getItem("user");
       console.log(userData);
       if (userData === undefined || userData === null) {
         alert("Please login first.")
       } else
       {
-      const user = JSON.parse(localStorage.getItem('user'))
+      const user = JSON.parse(localStorage.getItem("user"))
       // TODO: Enable this redirection and fetching
       //if(!user || !user.token){
       //  window.location="/login"
