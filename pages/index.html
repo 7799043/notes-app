@@ -82,21 +82,17 @@
       console.log(userData);
       if (userData === undefined || userData === null) {
         alert("Please login first.")
-      } else
-      {
+      } 
+      else{
       const user = JSON.parse(localStorage.getItem("user"))
-      // TODO: Enable this redirection and fetching
-      //if(!user || !user.token){
-      //  window.location="/login"
-      // }
       if (user !== null || user.email !==undefined ) {
         let noteContainer = document.querySelector(".mynotes")
         noteContainer.innerHTML = " "
         const notes = postData('/getnotes', { email: user.email })
         notes.then((notes) => {
           console.log("Notes", notes.notes)
-          // populate the notes
 
+          // populate the notes
           notes.notes.forEach(element => {
 
             let note = `
@@ -105,7 +101,7 @@
               <h5 class="card-title">${element.title}</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">Note Description</h6>
               <p class="card-text">${element.desc}</p>
-              <a href="#" class="card-link">Delete</a> 
+              <a href="#" class="card-link" onclick="deleteNote('${element.id}')">Delete</a> 
             </div>
           </div>`
 
@@ -113,14 +109,7 @@
             noteContainer.innerHTML += note
           });
         })
-      }
-
-      else {
-        alert("Please login first.")
-      }
-    }
-  }
-
+      }}}
     fetchNotes()
     // Add a click listener for Submit 
     let submit = document.getElementById("submit")
