@@ -61,10 +61,10 @@ app.post('/addnote', async (req, res) => {
     res.status(200).json({ success: true, note})     
 })
 
-app.post('/deletenote', (req, res) => {
-    const { userToken } = req.body
-    res.sendFile("pages/signup.html", { root: __dirname })
-})
+// app.post('/deletenote', (req, res) => {
+//     const { userToken } = req.body
+//     res.sendFile("pages/signup.html", { root: __dirname })
+// })
 
 app.listen(port, () => {
     console.log(`Example app listening on port http://localhost:${port}`)
