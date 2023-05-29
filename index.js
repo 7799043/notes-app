@@ -65,11 +65,11 @@ app.post('/deletenote', async (req, res) => {
   const { noteId } = req.body;
 
   try {
-    // Sprawdzenie, czy istnieje notatka o podanym ID
+    
     const note = await Note.findOne({ _id: noteId });
 
     if (note) {
-      // Usunięcie notatki
+    
       await Note.deleteOne({ _id: noteId });
       res.status(200).json({ success: true, message: "Note deleted" });
     } else {
