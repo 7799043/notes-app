@@ -139,16 +139,16 @@
     )
 
     // Add a click listener for delete   
-
     const deleteButtons = document.querySelectorAll(".mynotes");
-    deleteButtons.forEach(element => {
-      button.addEventListener("click", async () => {
+
+    deleteButtons.forEach(button => {
+      button.addEventListener("click", () => {
         const noteId = button.dataset.id;
         console.log("Deleting note with ID:", noteId);
 
         try {
           // API call to delete a note
-          const resp = await postData('/deletenote', { noteId });
+          const resp = postData('/deletenote', { noteId });
 
           // Check if the deletion from the database was successful
           if (resp.success) {
@@ -163,7 +163,6 @@
         }
       });
     });
-  
 
 
   </script>
