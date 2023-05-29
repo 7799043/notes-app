@@ -102,7 +102,7 @@
               <h5 class="card-title">${element.title}</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">Note Description</h6>
               <p class="card-text">${element.desc}</p>
-              <a href="#" class="card-link" onclick="deleteNote('${element.id}')">Delete</a> 
+              <a><button id="delete" class="btn btn-link delete-btn" data-id="${element._id}" type="submit">delete</button></a> 
             </div>
           </div>`
 
@@ -132,12 +132,38 @@
     })
     // Add a click listener for logut 
     let logout = document.getElementById("logout")
-    logout.addEventListener("click",  () => {
+    logout.addEventListener("click", () => {
       localStorage.clear()
-        alert("Logout succesfully!")
-      }
-    )                                                                                                              
-                                                                            
+      alert("Logout succesfully!")
+    }
+    )
+
+    // Add a click listener for delete   
+
+    const deleteButtons = document.querySelectorAll(".mynotes");
+    deleteButtons.forEach(element => {
+      button.addEventListener("click", async () => {
+        const noteId = button.dataset.id;
+        console.log("Deleting note with ID:", noteId);
+
+        try {
+          // API call to delete a note
+          const resp = await postData('/deletenote', { noteId });
+
+          // Check if the deletion from the database was successful
+          if (resp.success) {
+            console.log('Note deleted.');
+            alert("Note deleted.");
+            fetchNotes(); // Refresh notes after deletion
+          } else {
+            console.log('Error deleting note.');
+          }
+        } catch (error) {
+          console.error('Error calling API:', error);
+        }
+      });
+    });
+  
 
 
   </script>

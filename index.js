@@ -61,10 +61,27 @@ app.post('/addnote', async (req, res) => {
     res.status(200).json({ success: true, note})     
 })
 
-// app.post('/deletenote', (req, res) => {
-//     const { userToken } = req.body
-//     res.sendFile("pages/signup.html", { root: __dirname })
-// })
+app.post('/deletenote', async (req, res) => {
+  const { noteId } = req.body;
+
+  try {
+    // Sprawdzenie, czy istnieje notatka o podanym ID
+    const note = await Note.findOne({ _id: noteId });
+
+    if (note) {
+      // Usunięcie notatki
+      await Note.deleteOne({ _id: noteId });
+      res.status(200).json({ success: true, message: "Note deleted" });
+    } else {
+      res.status(404).json({ success: false, message: "Note not found" });
+    }
+  } catch (error) {
+    console.error('Error deleting note:', error);
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+});
+
+
 
 app.listen(port, () => {
     console.log(`Example app listening on port http://localhost:${port}`)
