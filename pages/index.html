@@ -104,7 +104,9 @@
               <h6 class="card-subtitle mb-2 text-body-secondary">Note Description</h6>
               <p class="card-text">${element.desc}</p>
               <a><button id="delete" class="btn btn-link delete-btn" data-id="${element._id}" type="submit">delete</button></a>
-              <a><button id="share" class="btn btn-link" type="submit">share</button></a>  
+              <a><button id="share" class="btn btn-link share-btn" data-id="${element.noteId}" type="submit">share</button>
+</a>
+
             </div>
           </div>`
 
@@ -167,10 +169,12 @@
     });
 
     // Add a click listener for share 
-    const share = document.querySelectorAll(".mynotes");
+    const shareButtons = document.querySelectorAll(".mynotes");
 
-    share.forEach(button => {
-      button.addEventListener("click", () => {
+    shareButtons.forEach(shareButton => {
+      const noteId = shareButton.getAttribute("data-id");
+
+      shareButton.addEventListener("click", () => {
         Swal.fire({
           title: 'Enter your email address',
           input: 'email',
@@ -187,8 +191,9 @@
             Swal.fire('Email Sent!', `Email address: ${result.value}`, 'success');
           }
         });
-      })
+      });
     })
+
   </script>
 </body>
 

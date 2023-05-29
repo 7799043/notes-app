@@ -4,4 +4,6 @@
 
 02 the application crashes when an attempt is made to register a user with the same name 
 
-03 the line (index.html line:84 : if (user && user.email){...}else...) doesn't work. It's not show alert ("Please login first.") when user && user.email is invaild. 
+03 the line (index.html line:84 : if (user && user.email){...}else...) doesn't work. It's not show alert ("Please login first.") when user && user.email is invaild. -> resolved 
+
+04 id's button in 'let note = ` (...) ` doesn't work. It work only for class of div.  
