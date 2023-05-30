@@ -1,6 +1,8 @@
 ## main problem: despite having access to the note's ID, I cannot use this ID to manage this note. I can neither share this note nor delete it. I can instead manage the entire note div. 
 update: the problem lies in template literals
 
+it's done 
+
 01 database accepts invalid email despite client-side security features :
 
 <input type="email" class="form-control" id="email" aria-describedby="emailHelp" pattern="^[^\s]+$" required>
