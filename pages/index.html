@@ -214,13 +214,13 @@
     // Add a click listener for delete   
 
 
-    function deleteClick(button) {
+    async function deleteClick(button) {
       var id = button.getAttribute('data-id');
       console.log("Deleting note with ID:", id);
 
       try {
         // API call to delete a note
-        const resp = postData('/deletenote', { id });
+        const resp = await postData('/deletenote', { id });
 
         // Check if the deletion from the database was successful
         if (resp.success) {
