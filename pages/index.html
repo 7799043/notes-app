@@ -173,8 +173,9 @@
               <h5 class="card-title">${element.title}</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">Note Description</h6>
               <p class="card-text">${element.desc}</p>
-              <a><button id="delete" class="btn btn-link delete-btn" data-id="${element._id}" type="submit">delete</button></a>
-                  <a><button class="btn btn-link share-btn" onclick="shareClick()">share this</button></a>
+              <a><button class="btn btn-link delete-btn" onclick="deleteClick()">delete</button></a>
+                  <a><button class="btn btn-link share-btn" onclick="shareClick()" data-id=${element._id}>share this</button></a>
+                  <p>${element._id}</p>
             </div>
           </div>`
 
@@ -216,29 +217,29 @@
 
     // deleteButtons.forEach(button => {
     //   button.addEventListener("click", () => {
-      function deleteClick() {
-        const noteId = button.dataset.id;
-        console.log("Deleting note with ID:", noteId);
+    function deleteClick() {
+      const noteId = event.target.getAttribute("data-id");
+      console.log("Deleting note with ID:", noteId);
 
-        try {
-          // API call to delete a note
-          const resp = postData('/deletenote', { noteId });
+      try {
+        // API call to delete a note
+        const resp = postData('/deletenote', { noteId });
 
-          // Check if the deletion from the database was successful
-          if (resp.success) {
-            console.log('Note deleted.');
-            alert("Note deleted.");
-            fetchNotes(); // Refresh notes after deletion
-          } else {
-            console.log('Error deleting note.');
-          }
-        } catch (error) {
-          console.error('Error calling API:', error);
+        // Check if the deletion from the database was successful
+        if (resp.success) {
+          console.log('Note deleted.');
+          alert("Note deleted.");
+          fetchNotes(); // Refresh notes after deletion
+        } else {
+          console.log('Error deleting note.');
         }
+      } catch (error) {
+        console.error('Error calling API:', error);
       }
+    }
 
     // Add a click listener for share 
-   
+
     function shareClick() {
       Swal.fire({
         title: 'Enter your email address',
