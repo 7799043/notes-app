@@ -62,73 +62,73 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-<!-- theme toogle  -->
+  <!-- theme toogle  -->
 
   <script>
 
     'use strict'
- 
- const storedTheme = localStorage.getItem('theme')
- 
- const getPreferredTheme = () => {
-   if (storedTheme) {
-     return storedTheme
-   }
- 
-   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
- }
- 
- const setTheme = function (theme) {
-   if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-     document.documentElement.setAttribute('data-bs-theme', 'dark')
-   } else {
-     document.documentElement.setAttribute('data-bs-theme', theme)
-   }
- }
- 
- setTheme(getPreferredTheme())
- 
- const showActiveTheme = (theme, focus = false) => {
-   const toggleButton = document.getElementById('theme-toggle-button');
-   
-   if (theme === 'dark') {
-     toggleButton.innerText = '🌙'; 
-     toggleButton.style.backgroundColor = '#34495e'; 
-     toggleButton.style.color = '#fff'; 
-   } else {
-     toggleButton.innerText = '☀️'; 
-     toggleButton.style.backgroundColor = '#f1c40f'; 
-     toggleButton.style.color = '#000'; 
-   }
-   
-   if (focus) {
-     toggleButton.focus();
-   }
- }
- 
- 
- window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-   if (storedTheme !== 'light' || storedTheme !== 'dark') {
-     setTheme(getPreferredTheme())
-   }
- })
- 
- window.addEventListener('DOMContentLoaded', () => {
-   showActiveTheme(getPreferredTheme())
- 
-   const themeToggleButton = document.querySelector('#theme-toggle-button')
-   themeToggleButton.addEventListener('click', () => {
-     const currentTheme = localStorage.getItem('theme')
-     const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
-     localStorage.setItem('theme', newTheme)
-     setTheme(newTheme)
-     showActiveTheme(newTheme, true)
-   })
- })
- 
- </script>
- 
- <!-- theme toogle  -->
+
+    const storedTheme = localStorage.getItem('theme')
+
+    const getPreferredTheme = () => {
+      if (storedTheme) {
+        return storedTheme
+      }
+
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    }
+
+    const setTheme = function (theme) {
+      if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-bs-theme', 'dark')
+      } else {
+        document.documentElement.setAttribute('data-bs-theme', theme)
+      }
+    }
+
+    setTheme(getPreferredTheme())
+
+    const showActiveTheme = (theme, focus = false) => {
+      const toggleButton = document.getElementById('theme-toggle-button');
+
+      if (theme === 'dark') {
+        toggleButton.innerText = '🌙';
+        toggleButton.style.backgroundColor = '#34495e';
+        toggleButton.style.color = '#fff';
+      } else {
+        toggleButton.innerText = '☀️';
+        toggleButton.style.backgroundColor = '#f1c40f';
+        toggleButton.style.color = '#000';
+      }
+
+      if (focus) {
+        toggleButton.focus();
+      }
+    }
+
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+      if (storedTheme !== 'light' || storedTheme !== 'dark') {
+        setTheme(getPreferredTheme())
+      }
+    })
+
+    window.addEventListener('DOMContentLoaded', () => {
+      showActiveTheme(getPreferredTheme())
+
+      const themeToggleButton = document.querySelector('#theme-toggle-button')
+      themeToggleButton.addEventListener('click', () => {
+        const currentTheme = localStorage.getItem('theme')
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
+        localStorage.setItem('theme', newTheme)
+        setTheme(newTheme)
+        showActiveTheme(newTheme, true)
+      })
+    })
+
+  </script>
+
+  <!-- theme toogle  -->
 
   <script>
     async function postData(url = "", data = {}) {
@@ -174,9 +174,7 @@
               <h6 class="card-subtitle mb-2 text-body-secondary">Note Description</h6>
               <p class="card-text">${element.desc}</p>
               <a><button id="delete" class="btn btn-link delete-btn" data-id="${element._id}" type="submit">delete</button></a>
-              <a><button id="share" class="btn btn-link share-btn" data-id="${element.noteId}" type="submit">share</button>
-</a>
-
+                  <a><button class="btn btn-link share-btn" onclick="shareClick()">share this</button></a>
             </div>
           </div>`
 
@@ -213,10 +211,12 @@
     )
 
     // Add a click listener for delete   
-    const deleteButtons = document.querySelectorAll(".mynotes");
 
-    deleteButtons.forEach(button => {
-      button.addEventListener("click", () => {
+    // const deleteButtons = document.querySelectorAll(".mynotes");
+
+    // deleteButtons.forEach(button => {
+    //   button.addEventListener("click", () => {
+      function deleteClick() {
         const noteId = button.dataset.id;
         console.log("Deleting note with ID:", noteId);
 
@@ -235,34 +235,28 @@
         } catch (error) {
           console.error('Error calling API:', error);
         }
-      });
-    });
+      }
 
     // Add a click listener for share 
-    const shareButtons = document.querySelectorAll(".mynotes");
-
-    shareButtons.forEach(shareButton => {
-      const noteId = shareButton.getAttribute("data-id");
-
-      shareButton.addEventListener("click", () => {
-        Swal.fire({
-          title: 'Enter your email address',
-          input: 'email',
-          showCancelButton: true,
-          confirmButtonText: 'Send',
-          cancelButtonText: 'Cancel',
-          showLoaderOnConfirm: true,
-          preConfirm: (email) => {
-            // Here you can call the function to send the email with the entered email address
-            // e.g. sendEmail(email);
-          }
-        }).then((result) => {
-          if (result.isConfirmed) {
-            Swal.fire('Email Sent!', `Email address: ${result.value}`, 'success');
-          }
-        });
+   
+    function shareClick() {
+      Swal.fire({
+        title: 'Enter your email address',
+        input: 'email',
+        showCancelButton: true,
+        confirmButtonText: 'Send',
+        cancelButtonText: 'Cancel',
+        showLoaderOnConfirm: true,
+        preConfirm: (email) => {
+          // Here you can call the function to send the email with the entered email address
+          // e.g. sendEmail(email);
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire('Email Sent!', `Email address: ${result.value}`, 'success');
+        }
       });
-    })
+    }
 
   </script>
 </body>
