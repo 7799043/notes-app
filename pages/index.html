@@ -174,7 +174,7 @@
               <h6 class="card-subtitle mb-2 text-body-secondary">Note Description</h6>
               <p class="card-text">${element.desc}</p>
               <a><button class="btn btn-link delete-btn" onclick="deleteClick()">delete</button></a>
-                  <a><button class="btn btn-link share-btn" onclick="shareClick()" data-id=${element._id}>share this</button></a>
+                  <a><button class="btn btn-link share-btn" onclick="shareClick()" data-id="${element._id}">share this</button></a>
                   <p>${element._id}</p>
             </div>
           </div>`
@@ -217,8 +217,8 @@
 
     // deleteButtons.forEach(button => {
     //   button.addEventListener("click", () => {
-    function deleteClick() {
-      const noteId = event.target.getAttribute("data-id");
+    function deleteClick(button) {
+      const noteId = button.getAttribute("data-id");
       console.log("Deleting note with ID:", noteId);
 
       try {
