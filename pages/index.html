@@ -174,14 +174,13 @@
               <h6 class="card-subtitle mb-2 text-body-secondary">Note Description</h6>
               <p class="card-text">${element.desc}</p>
               <a><button class="btn btn-link delete-btn" onclick="deleteClick(this)" data-id="${element._id}">delete</button></a>
-                  <a><button class="btn btn-link share-btn" onclick="shareClick()">share this</button></a>
-                  <p>${element._id}</p>
+              <a><button class="btn btn-link share-btn" onclick="shareClick()">share this</button></a>
             </div>
           </div>`
 
               let noteContainer = document.querySelector(".mynotes")
               noteContainer.innerHTML += note
-            });
+            })
           })
         }
       }
@@ -234,7 +233,7 @@
         console.error('Error calling API:', error);
       }
     }
-    
+
 
     // Add a click listener for share 
 
