@@ -62,15 +62,15 @@ app.post('/addnote', async (req, res) => {
 })
 
 app.post('/deletenote', async (req, res) => {
-  const { noteId } = req.body;
+  const { id } = req.body;
 
   try {
     
-    const note = await Note.findOne({ _id: noteId });
+    const note = await Note.findOne({ _id: id });
 
     if (note) {
     
-      await Note.deleteOne({ _id: noteId });
+      await Note.deleteOne({ _id: id });
       res.status(200).json({ success: true, message: "Note deleted" });
     } else {
       res.status(404).json({ success: false, message: "Note not found" });
