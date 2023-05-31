@@ -1,9 +1,17 @@
+## PROJECT NAME: Notes App 
 
-#### PROJECT NAME: Notes App 
 
-#### PROJECT OBJECTIVE: The objective of this project is learn the basic of using GitHub and familiarize myself with the process of creating.
 
-#### PROJECT DESCRIPTION: The project involves creating a simple application using JS based on a viedo tutorial. Here is a link: https://www.youtube.com/watch?v=UsNm8ZL3YaE
+
+##### Quick preview of my work
+[![Quick preview of my work](https://img.youtube.com/vi/YKW9Za5yjZI/0.jpg)](https://www.youtube.com/watch?v=YKW9Za5yjZI)
+
+
+#### PROJECT OBJECTIVE: 
+The objective of this project is learn the basic of using GitHub and familiarize myself with the process of creating.
+
+#### PROJECT DESCRIPTION: 
+The project involves creating a simple application using JS based on a viedo tutorial. Here is a link: https://www.youtube.com/watch?v=UsNm8ZL3YaE
 
 #### TOOLS USED: 
  - coffee
