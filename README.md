@@ -29,8 +29,8 @@ npm start
 ```
 This command will start a development server hosting the Notes application. By default, the application will be available at http://localhost:3000 in your browser.
 
-7. Connect to an existing MongoDB cluster or create a new one:
-The Notes application might require a connection to a MongoDB database to store and retrieve data. Ensure you have an existing MongoDB cluster that you can connect to, or follow the MongoDB documentation (https://docs.mongodb.com) to create a new cluster based on your needs. Once you have the connection details (such as the connection URL), you may need to update the application's configuration to establish the connection with MongoDB.
+7. Connect to an existing MongoDB cluster or create a new one.
+<p>The Notes application might require a connection to a MongoDB database to store and retrieve data. Ensure you have an existing MongoDB cluster that you can connect to, or follow the MongoDB documentation (https://docs.mongodb.com) to create a new cluster based on your needs. Once you have the connection details (such as the connection URL), you may need to update the application's configuration to establish the connection with MongoDB.</p>
 
 ## Quick preview of app work
 [![Quick preview of app work](https://img.youtube.com/vi/YKW9Za5yjZI/0.jpg)](https://www.youtube.com/watch?v=YKW9Za5yjZI)
