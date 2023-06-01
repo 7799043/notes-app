@@ -35,6 +35,8 @@ This command will start a development server hosting the Notes application. By d
 ## Quick preview of app work
 [![Quick preview of app work](https://img.youtube.com/vi/YKW9Za5yjZI/0.jpg)](https://www.youtube.com/watch?v=YKW9Za5yjZI)
 
+<p> The application was created in connection with the tutorials: https://www.youtube.com/watch?v=UsNm8ZL3YaE </p>
+
 <!-- 
 #### PROJECT OBJECTIVE: 
 The objective of this project is learn the basic of using GitHub and familiarize myself with the process of creating.
