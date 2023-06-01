@@ -1,6 +1,6 @@
 ## PROJECT NAME: Notes App 
 
-
+<p>As a test automation developer, I am constantly learning, so I need an app to keep my knowledge in one place. A web application would be a good choice because, firstly, it helps me improve my JS skills, and secondly, I can access my notes from anywhere. The process of learning requires updating notes and even deleting some notes as my knowledge evolves, so the app must adapt to these changes. Since the topics I cover are different, it's necessary to keep them organized in different accounts. This helps with organization. Sometimes, I need to change the background color, especially when I have ideas late in the evening.</p>
 
 
 ##### Quick preview of my work
